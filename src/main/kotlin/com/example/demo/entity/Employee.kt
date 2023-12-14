@@ -15,6 +15,9 @@ data class Employee(
     @JoinColumn(name = "department_id")
     var department: Department
 ){
+
+    //ここでtoStringメソッドをoverrideすることで循環参照によるstackOverFlowを防止
+    //以下をコメントアウトするとエラーになります
     override fun toString(): String {
         return "Employee(" +
                 "id = $id, " +
